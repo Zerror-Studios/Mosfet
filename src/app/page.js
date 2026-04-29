@@ -1,4 +1,3 @@
-
 "use client";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -28,16 +27,33 @@ export default function Home() {
     // Custom cursor
     const cursor = cursorRef.current;
     const onMouseMove = (e) => {
-      gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power2.out" });
+      gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.15,
+        ease: "power2.out",
+      });
     };
     window.addEventListener("mousemove", onMouseMove);
 
     // Hero entrance
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
     tl.from(subRef.current, { y: 30, opacity: 0, duration: 0.8 })
-      .from(headingRef.current, { y: 60, opacity: 0, duration: 1, letterSpacing: "0.5em" }, "-=0.4")
-      .from(".hero-line", { scaleX: 0, duration: 0.8, transformOrigin: "left" }, "-=0.3")
-      .from(".hero-badge", { y: 20, opacity: 0, stagger: 0.15, duration: 0.6 }, "-=0.4");
+      .from(
+        headingRef.current,
+        { y: 60, opacity: 0, duration: 1, letterSpacing: "0.5em" },
+        "-=0.4",
+      )
+      .from(
+        ".hero-line",
+        { scaleX: 0, duration: 0.8, transformOrigin: "left" },
+        "-=0.3",
+      )
+      .from(
+        ".hero-badge",
+        { y: 20, opacity: 0, stagger: 0.15, duration: 0.6 },
+        "-=0.4",
+      );
 
     // Glow pulse
     gsap.to(glowRef.current, {
@@ -96,43 +112,42 @@ export default function Home() {
 
   const services = [
     {
-      icon: "⚡",
-      title: "Power Electronics Design",
-      desc: "End-to-end design of MOSFET-based power circuits—DC-DC converters, inverters, and motor drives—optimised for efficiency and thermal performance.",
+      icon: "",
+      title: "Automotive Intelligence Solutions",
+      desc: `Advanced dashcams with AI features (ANPR, driver monitoring, hazard detection).
+Telematics systems with GPS, 4G/5G connectivity, and real-time vehicle diagnostics.`,
     },
     {
-      icon: "🔬",
-      title: "PCB Prototyping",
-      desc: "Rapid prototype and production-ready PCB layouts with DFM best practices, impedance control, and comprehensive Gerber deliverables.",
+      icon: "",
+      title: "OEM Integrated Systems",
+      desc: "Plug-and-play ambient lighting & sound systems360° / 540° surround vision solutions.",
     },
     {
-      icon: "📐",
-      title: "Gate Driver Engineering",
-      desc: "Custom gate-driver circuits with bootstrap topologies, dead-time control, and fault protection tailored to your switching frequency.",
+      icon: "",
+      title: "SaaS & Cloud Platforms",
+      desc: `Fleet Management Systems (tracking, geofencing, analytics).
+Emergency response & SOS platforms with real-time alerts`,
     },
     {
-      icon: "🛡️",
-      title: "EMI / EMC Compliance",
-      desc: "Conducted & radiated emission analysis, filtering design, and pre-compliance testing to get your product to market faster.",
+      icon: "",
+      title: "Car Care & Protection Solutions",
+      desc: `Ceramic coatings and paint protection systems.
+Leather, fabric, and interior protection solutions.
+Premium cleaning chemicals and detailing products.
+Paint Protection Films (PPF) and advanced window tint solutions.`,
     },
     {
-      icon: "🤖",
-      title: "Firmware Integration",
-      desc: "Embedded firmware for PWM generation, closed-loop control, and real-time telemetry—bridging hardware and software seamlessly.",
-    },
-    {
-      icon: "📊",
-      title: "Simulation & Validation",
-      desc: "SPICE-level and multi-physics simulation followed by bench validation ensuring your design performs exactly as modelled.",
+      icon: "",
+      title: "Custom Engineering & OEM Development",
+      desc: `Full-stack hardware + software ecosystem
+Custom ODM product development.
+Secure cloud-native architecture.`,
     },
   ];
 
   const socialLinks = [
-    { label: "Instagram", icon: "IG", href: "#" },
-    { label: "Facebook", icon: "FB", href: "#" },
-    { label: "Twitter", icon: "TW", href: "#" },
-    { label: "TikTok", icon: "TK", href: "#" },
-    { label: "YouTube", icon: "YT", href: "#" },
+    { label: "Instagram", icon: "IG", href: "https://www.instagram.com/mosfettech/" },
+    { label: "LinkedIn", icon: "FB", href: "https://in.linkedin.com/company/mosfettech" },
   ];
 
   return (
@@ -145,16 +160,15 @@ export default function Home() {
       />
 
       <main className="bg-[#080808] text-white font-sans overflow-x-hidden">
-
         {/* ════════════════════════════════════════
             HERO
         ════════════════════════════════════════ */}
         <section
           ref={heroRef}
-          className="relative min-h-screen flex flex-col items-center bg-gradient-to-b from-orange-500 to-black justify-center overflow-hidden"
+          className="relative min-h-screen flex flex-col items-center bg-gradient-to-b from-[red] to-black justify-center overflow-hidden"
         >
           {/* Glow orb */}
-          <div
+          {/* <div
             ref={glowRef}
             className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-[680px] h-[480px] rounded-full"
             style={{
@@ -163,7 +177,7 @@ export default function Home() {
               filter: "blur(2px)",
               opacity: 0.75,
             }}
-          />
+          /> */}
 
           {/* Grain overlay */}
           <div
@@ -181,40 +195,49 @@ export default function Home() {
               className="text-[White] tracking-[0.3em] text-sm mb-6 uppercase font-light"
               style={{ fontFamily: "'Courier New', monospace" }}
             >
-              Stay Tuned For Something Amazing
+              We’re Launching Soon
             </p>
 
             <h1
               ref={headingRef}
-              className="text-[clamp(3.5rem,12vw,9rem)] text-white uppercase leading-none tracking-widest"
+              className="text-[clamp(3.5rem,7vw,9rem)] text-white uppercase text-center leading-none tracking-widest"
               style={{
                 fontFamily: "'Impact', 'Arial Black', sans-serif",
-                
-                
               }}
             >
-              MOSFET
+              UNDER <br /> DEVELOPMENT
             </h1>
 
             {/* Horizontal rule */}
-            <div className="hero-line w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-orange-500 to-transparent my-8" />
+            <div className="hero-line w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-[red] to-transparent my-8" />
 
             {/* Badges */}
-            <div className="flex flex-wrap justify-center gap-3 mt-2">
+            {/* <div className="flex flex-wrap justify-center gap-3 mt-2">
               {["Power Electronics", "PCB Design", "EMI/EMC", "Firmware"].map((b) => (
                 <span
                   key={b}
-                  className="hero-badge px-4 py-1.5 rounded-full border border-orange-500/40 text-orange-300 text-xs tracking-widest uppercase"
+                  className="hero-badge px-4 py-1.5 rounded-full border border-orange-500/40 text-[orange-300] text-xs tracking-widest uppercase"
                   style={{ backdropFilter: "blur(8px)", background: "rgba(232,112,10,0.08)" }}
                 >
                   {b}
                 </span>
               ))}
-            </div>
+            </div> */}
 
-            <p className="hero-badge mt-10 max-w-lg text-white text-sm leading-relaxed">
-              Engineering the future of power electronics — precision MOSFET design,
-              prototyping, and integration services for next-generation hardware.
+            <p className="hero-badge mt-10 max-w-[90%] text-white text-sm leading-relaxed">
+              Mosfet Tech Solutions is a forward-thinking technology company
+              specializing in automotive safety, visibility, and intelligent
+              vehicle systems. We design and deliver integrated hardware and
+              software solutions that seamlessly align with OEM vehicle
+              architectures, ensuring high performance, reliability, and
+              scalability. With deep expertise in AI-driven systems, telematics,
+              dash cameras, ambient technologies, and cloud platforms, we are
+              building the future of connected mobility. Our approach is rooted
+              in custom engineering, where every solution is tailored to meet
+              specific OEM requirements rather than adopting generic models.
+              Backed by a commitment to quality, innovation, and global
+              standards, we aim to become the core intelligence layer powering
+              modern vehicles.
             </p>
           </div>
 
@@ -225,22 +248,31 @@ export default function Home() {
         {/* ════════════════════════════════════════
             ABOUT / SERVICES
         ════════════════════════════════════════ */}
-        <section ref={servicesRef} className="relative py-28 px-6 md:px-12 max-w-7xl mx-auto">
-
+        <section
+        id="services"
+          ref={servicesRef}
+          className="relative py-28 px-6 md:px-12 max-w-7xl mx-auto"
+        >
           {/* Section header */}
           <div className="section-title mb-20 text-center">
-            <span className="text-orange-500 text-xs tracking-[0.4em] uppercase">What We Do</span>
+            <span className="text-red-500 text-xs tracking-[0.4em] uppercase">
+              Our Services
+            </span>
             <h2
               className="mt-3 text-5xl md:text-6xl font-black uppercase tracking-tight"
               style={{ fontFamily: "'Impact', sans-serif" }}
             >
-              Our Services
+              What We Do
             </h2>
             <p className="mt-5 text-white max-w-2xl mx-auto text-sm leading-relaxed">
-              Mosfet delivers expert-level power electronics engineering — from initial
-              concept and simulation through to verified, production-ready hardware.
-              Whether you're building an EV charger, an industrial inverter, or a
-              consumer gadget, our team has you covered.
+              We provide advanced automotive technology solutions, including
+              AI-powered dashcams, telematics systems, OEM-integrated lighting
+              and vision systems, and cloud-based SaaS platforms. Our services
+              are designed to enhance vehicle safety, connectivity, and
+              performance through seamless hardware and software integration.
+              With a focus on customization and OEM-grade engineering, we
+              deliver scalable, reliable, and future-ready solutions tailored to
+              modern mobility needs.
             </p>
           </div>
 
@@ -252,24 +284,35 @@ export default function Home() {
                 className="service-card group relative rounded-2xl p-7 cursor-default transition-all duration-300 hover:-translate-y-1"
                 style={{
                   background: "rgba(255,255,255,0.03)",
-                  border: "1px solid rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255, 0, 0, 0.35)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.border = "1px solid rgba(232,112,10,0.35)";
+                  e.currentTarget.style.border =
+                    "1px solid rgba(232,112,10,0.35)";
                   e.currentTarget.style.background = "rgba(232,112,10,0.05)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.border = "1px solid rgba(255,255,255,0.06)";
+                  e.currentTarget.style.border =
+                    "1px solid rgba(255,255,255,0.06)";
                   e.currentTarget.style.background = "rgba(255,255,255,0.03)";
                 }}
               >
                 {/* Subtle corner glow on hover */}
-                <div className="absolute top-0 right-0 w-24 h-24 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: "radial-gradient(circle, rgba(232,112,10,0.15) 0%, transparent 70%)" }} />
+                <div
+                  className="absolute top-0 right-0 w-24 h-24 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(circle, rgba(232,112,10,0.15) 0%, transparent 70%)",
+                  }}
+                />
 
                 <span className="text-3xl mb-4 block">{s.icon}</span>
-                <h3 className="text-lg font-bold mb-2 tracking-tight">{s.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{s.desc}</p>
+                <h3 className="text-lg font-bold mb-2 tracking-tight">
+                  {s.title}
+                </h3>
+                <p className="text-white/40 text-sm leading-relaxed">
+                  {s.desc}
+                </p>
               </div>
             ))}
           </div>
@@ -278,15 +321,23 @@ export default function Home() {
         {/* ════════════════════════════════════════
             CONTACT FORM
         ════════════════════════════════════════ */}
-        <section ref={contactRef} className="relative py-28 px-6">
+        <section id="contact" ref={contactRef} className="relative py-28 px-6">
           {/* Background glow */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-[600px] h-[300px] rounded-full opacity-10"
-              style={{ background: "radial-gradient(ellipse, #e8700a 0%, transparent 70%)", filter: "blur(60px)" }} />
+            <div
+              className="w-[600px] h-[300px] rounded-full opacity-10"
+              style={{
+                background:
+                  "radial-gradient(ellipse, #e8700a 0%, transparent 70%)",
+                filter: "blur(60px)",
+              }}
+            />
           </div>
 
           <div className="contact-inner relative z-10 max-w-2xl mx-auto text-center">
-            <span className="text-orange-500 text-xs tracking-[0.4em] uppercase">Get In Touch</span>
+            <span className="text-red-500 text-xs tracking-[0.4em] uppercase">
+              Get In Touch
+            </span>
             <h2
               className="mt-3 text-5xl font-black uppercase tracking-tight mb-4"
               style={{ fontFamily: "'Impact', sans-serif" }}
@@ -294,23 +345,40 @@ export default function Home() {
               Contact Us
             </h2>
             <p className="text-white/40 text-sm mb-12">
-              Have a project in mind? Fill out the form and our team will get back to you within 24 hours.
+              Have a project in mind? Fill out the form and our team will get
+              back to you within 24 hours.
             </p>
 
             {sent ? (
               <div className="py-16 text-center">
                 <p className="text-4xl mb-3">✅</p>
-                <p className="text-orange-400 text-lg font-semibold">Message Received!</p>
-                <p className="text-white text-sm mt-2">We'll be in touch soon.</p>
+                <p className="text-red-500 text-lg font-semibold">
+                  Message Received!
+                </p>
+                <p className="text-[white] text-sm mt-2">
+                  We'll be in touch soon.
+                </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4 text-left">
                 {[
-                  { label: "Full Name", name: "name", type: "text", placeholder: "John Doe" },
-                  { label: "Email Address", name: "email", type: "email", placeholder: "john@example.com" },
+                  {
+                    label: "Full Name",
+                    name: "name",
+                    type: "text",
+                    placeholder: "John Doe",
+                  },
+                  {
+                    label: "Email Address",
+                    name: "email",
+                    type: "email",
+                    placeholder: "john@example.com",
+                  },
                 ].map((f) => (
                   <div key={f.name}>
-                    <label className="block text-xs text-white mb-1.5 tracking-widest uppercase">{f.label}</label>
+                    <label className="block text-xs text-white mb-1.5 tracking-widest uppercase">
+                      {f.label}
+                    </label>
                     <input
                       required
                       type={f.type}
@@ -318,12 +386,14 @@ export default function Home() {
                       value={form[f.name]}
                       onChange={handleChange}
                       placeholder={f.placeholder}
-                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/50 outline-none focus:border-orange-500/60 transition-colors"
+                      className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/50 outline-none focus:border-red-500 transition-colors"
                     />
                   </div>
                 ))}
                 <div>
-                  <label className="block text-xs text-white mb-1.5 tracking-widest uppercase">Message</label>
+                  <label className="block text-xs text-white mb-1.5 tracking-widest uppercase">
+                    Message
+                  </label>
                   <textarea
                     required
                     name="message"
@@ -331,14 +401,15 @@ export default function Home() {
                     onChange={handleChange}
                     rows={5}
                     placeholder="Tell us about your project..."
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/50 outline-none focus:border-orange-500/60 transition-colors resize-none"
+                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/50 outline-none focus:border-red-500 transition-colors resize-none"
                   />
                 </div>
                 <button
                   type="submit"
                   className="w-full py-4 rounded-xl font-bold tracking-widest uppercase text-sm transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                   style={{
-                    background: "linear-gradient(135deg, #e8700a 0%, #b84a00 100%)",
+                    background:
+                      "red",
                     boxShadow: "0 0 30px rgba(232,112,10,0.3)",
                   }}
                 >
@@ -357,56 +428,73 @@ export default function Home() {
           className="relative border-t border-white/[0.06] pt-16 pb-8 px-6 md:px-12"
         >
           <div className="max-w-7xl mx-auto">
-
             {/* Top grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-
               {/* Brand */}
               <div className="footer-item">
                 <h3
                   className="text-3xl font-black uppercase tracking-widest mb-3"
-                  style={{ fontFamily: "'Impact', sans-serif", color: "#e8700a" }}
+                  style={{
+                    fontFamily: "'Impact', sans-serif",
+                    color: "red",
+                  }}
                 >
                   MOSFET
                 </h3>
                 <p className="text-white text-sm leading-relaxed max-w-xs">
-                  Precision power electronics engineering — where high-voltage innovation
-                  meets production-grade reliability.
+                  Core intelligence for automotive safety, visibility, and
+                  connected vehicle systems — delivering OEM-grade hardware, AI,
+                  and cloud solutions built for the future of mobility.
                 </p>
               </div>
 
               {/* Contact info */}
               <div className="footer-item">
-                <h4 className="text-xs text-orange-500 tracking-[0.3em] uppercase mb-5">Contact</h4>
+                <h4 className="text-xs text-red-500 tracking-[0.3em] uppercase mb-5">
+                  Contact
+                </h4>
                 <ul className="space-y-3 text-sm text-white">
                   <li className="flex items-start gap-3">
-                    <span className="text-orange-500 mt-0.5">📧</span>
-                    <span>hello@mosfet.design</span>
+                    <span className="text-red-500 mt-0.5">🌐</span>
+                    <span>www.mosfettech.com</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-orange-500 mt-0.5">📞</span>
-                    <span>+91 98765 43210</span>
+                    <span className="text-red-500 mt-0.5">📞</span>
+                    <span>+91 9999878104</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-orange-500 mt-0.5">📍</span>
-                    <span>Sector 17, Chandigarh,<br />Punjab, India — 160017</span>
+                    <span className="text-red-500 mt-0.5">📞</span>
+                    <span>+91 9910700028</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-500 mt-0.5">📍</span>
+                    <span>
+                      B-66, 1st Floor, Naraina Industrial Area, Phase 1,
+                      <br />
+                      New Delhi, India
+                    </span>
                   </li>
                 </ul>
               </div>
-
               {/* Social */}
               <div className="footer-item">
-                <h4 className="text-xs text-orange-500 tracking-[0.3em] uppercase mb-5">Stay In Touch</h4>
+                <h4 className="text-xs text-red-500 tracking-[0.3em] uppercase mb-5">
+                  Stay In Touch
+                </h4>
                 <div className="flex flex-wrap gap-3">
                   {socialLinks.map((s) => (
                     <a
                       key={s.label}
                       href={s.href}
+                      target="blank"
                       aria-label={s.label}
-                      className="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-bold text-white/50 hover:text-orange-400 transition-all duration-200 hover:scale-110"
-                      style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
+                      className="w-fit px-5 h-10 rounded-lg flex items-center justify-center text-xs font-bold text-white/80 hover:text-red-500 transition-all duration-200 hover:scale-110"
+                      style={{
+                        background: "rgba(255,255,255,0.04)",
+                        border: "1px solid rgba(255,255,255,0.08)",
+                      }}
                     >
-                      {s.icon}
+                      {s.label}
                     </a>
                   ))}
                 </div>
@@ -418,13 +506,18 @@ export default function Home() {
 
             {/* Bottom bar */}
             <div className="footer-item flex flex-col md:flex-row items-center justify-between gap-3 text-[14px] text-white">
-              <span>© {new Date().getFullYear()} Mosfet. All rights reserved.</span>
+              <span>
+                © {new Date().getFullYear()} Mosfet. All rights reserved.
+              </span>
               <span
-                className="hover:text-orange-400 transition-colors cursor-default"
+                className=" transition-colors cursor-default"
                 style={{ fontFamily: "'Courier New', monospace" }}
               >
                 Developed by{" "}
-                <a href="https://www.zerrorstudios.com/" className="text-white underline underline-offset-2">
+                <a
+                  href="https://www.zerrorstudios.com/" target="blank"
+                  className="text-white underline underline-offset-2"
+                >
                   Zerror Studios
                 </a>
               </span>
