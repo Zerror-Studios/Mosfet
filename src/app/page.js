@@ -654,25 +654,25 @@ const Home = () => {
         }
       );
 
-      // Footer items
-      gsap.utils.toArray(".footer-item").forEach((el, i) => {
-        gsap.fromTo(
-          el,
-          { y: 30, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.6,
-            delay: i * 0.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 92%",
-              once: true,
-            },
-          }
-        );
-      });
+      // // Footer items
+      // gsap.utils.toArray(".footer-item").forEach((el, i) => {
+      //   gsap.fromTo(
+      //     el,
+      //     { y: 30, opacity: 0 },
+      //     {
+      //       y: 0,
+      //       opacity: 1,
+      //       duration: 0.6,
+      //       delay: i * 0.1,
+      //       ease: "power3.out",
+      //       scrollTrigger: {
+      //         trigger: el,
+      //         start: "top 92%",
+      //         once: true,
+      //       },
+      //     }
+      //   );
+      // });
     });
 
     return () => ctx.revert(); // cleanup on unmount
