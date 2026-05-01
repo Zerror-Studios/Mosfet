@@ -724,7 +724,7 @@ const Home = () => {
 
           <p
             ref={heroBadgeRef}
-            className="hero-badge mt-10 text-[18px] sm:w-[60%] text-white text-sm leading-relaxed"
+            className="hero-badge mt-10 max-sm:mt-2 text-[18px] max-sm:text-[14px] sm:w-[60%] text-white text-sm leading-relaxed"
             style={{ opacity: 0 }}
           >
             Mosfet Tech Solutions is a technology company focused on automotive
@@ -745,12 +745,12 @@ const Home = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
         style={{ opacity: 0 }}
       >
-        <span className="text-[11px] uppercase tracking-[0.35em] text-white/60">
+        <span className="text-[11px] uppercase tracking-[0.35em] text-white">
           Scroll
         </span>
-        <div className="scroll-down-icon flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 backdrop-blur-sm">
+        <div className="scroll-down-icon flex h-12 w-12 items-center justify-center rounded-full border border-white bg-white/5 backdrop-blur-sm">
           <svg
-            className="h-5 w-5 text-white/80 animate-bounce"
+            className="h-5 w-5 text-white animate-bounce"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -773,21 +773,16 @@ const Home = () => {
       >
         {/* Section header */}
         <div className="section-title mb-20 text-center">
-          <span className="text-red-500 text-[1vw] leading-[1vw] max-sm:text-[1rem] max-sm:leading-[1rem] uppercase">
+          {/* <span className="text-red-500 text-[1vw] leading-[1vw] max-sm:text-[1rem] max-sm:leading-[1rem] uppercase">
             Our Services
-          </span>
+          </span> */}
           <h2 className="mt-3 text-[2vw] max-sm:text-[2rem] max-sm:leading-[2rem] font-semibold leading-[2.2vw] WhiteText uppercase tracking-tight">
             What We Do
           </h2>
-          <p className="mt-5 text-white mx-auto sm:w-[60%] text-[18px] leading-relaxed">
-            We provide advanced automotive technology solutions, including
-            AI-powered dashcams, telematics systems, OEM-integrated lighting and
-            vision systems, and cloud-based SaaS platforms. Our services are
-            designed to enhance vehicle safety, connectivity, and performance
-            through seamless hardware and software integration. With a focus on
-            customization and OEM-grade engineering, we deliver scalable,
-            reliable, and future-ready solutions tailored to modern mobility
-            needs.
+          <p className="mt-5 text-white mx-auto max-sm:text-[14px] text-center sm:w-[60%] text-[18px] leading-relaxed">
+            Our solutions enhance vehicle safety, connectivity, and performance
+            through scalable, reliable, and customized hardware-software
+            integration.
           </p>
         </div>
 
@@ -796,27 +791,28 @@ const Home = () => {
           {/* Featured service */}
           <div className="lg:col-span-5 service-card">
             <div
-              className="group relative h-full overflow-hidden rounded-[28px] p-8 md:p-10 border border-white/10 bg-white/[0.03] transition-all duration-500 hover:-translate-y-1 hover:border-[red] hover:bg-[red]/10"
+              className="group relative h-full overflow-hidden rounded-[28px] p-8 md:p-10 border border-[red]/70 bg-white/[0.03] transition-all duration-500 hover:-translate-y-1 hover:border-[red] hover:bg-[red]/10"
               style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.02) inset" }}
             >
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(232,112,10,0.18),transparent_45%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-orange-500/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10 flex h-full flex-col justify-between gap-8">
+                
                 <div>
-                  <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.25em] text-white/70">
-                    Featured Service
-                  </div>
-                  <div className="mb-6 text-4xl">{services[0].icon || "⚡"}</div>
-                  <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-white mb-4">
+                   
+                 
+                  <span className="rounded-full border w-fit flex ml-auto border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/50">
+                     01
+                    </span>
+                  
+                 
+                  <h3 className="text-2xl md:text-3xl mt-5 max-sm:text-[20px] font-semibold tracking-tight text-white mb-4">
                     {services[0].title}
                   </h3>
-                  <p className="text-white/75 text-base leading-7 whitespace-pre-line">
+                  <p className="text-white/75 max-sm:text-[14px] text-base leading-7 whitespace-pre-line">
                     {services[0].desc}
                   </p>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-orange-300/90">
-                  <span className="h-px w-10 bg-[red]/70 transition-all duration-300 group-hover:w-16" />
                 </div>
               </div>
             </div>
@@ -827,7 +823,7 @@ const Home = () => {
             {services.slice(1).map((s, i) => (
               <div
                 key={i}
-                className="service-card group relative overflow-hidden rounded-[24px] p-6 border border-white/10 bg-white/[0.03] transition-all duration-500 hover:-translate-y-1 hover:border-[red] hover:bg-[red]/10"
+                className="service-card group relative overflow-hidden rounded-[24px] p-6 border border-[red]/70 bg-white/[0.03] transition-all duration-500 hover:-translate-y-1 hover:border-[red] hover:bg-[red]/10"
                 style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.02) inset" }}
               >
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(232,112,10,0.14),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -840,17 +836,13 @@ const Home = () => {
                       0{i + 2}
                     </span>
                   </div>
-                  <h3 className="text-lg font-semibold tracking-tight text-white mb-2">
+                  <h3 className="text-lg font-semibold max-sm:text-[20px] tracking-tight text-white mb-2">
                     {s.title}
                   </h3>
-                  <p className="text-sm leading-6 text-white/70 whitespace-pre-line flex-1">
+                  <p className="text-sm leading-6 max-sm:text-[14px] text-white/70 whitespace-pre-line flex-1">
                     {s.desc}
                   </p>
-                  <div className="mt-5 flex items-center gap-2 text-xs uppercase tracking-[0.25em] RedText">
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      -→
-                    </span>
-                  </div>
+                  <div className="mt-5 flex items-center gap-2 text-xs uppercase tracking-[0.25em] RedText"></div>
                 </div>
               </div>
             ))}
@@ -862,11 +854,11 @@ const Home = () => {
       <section className="relative BlackBG py-28 px-6 sm:px-10">
         <div className="w-fit h-fit mx-auto flex gap-5">
           <div className="w-fit max-sm:w-full h-auto WhiteText flex flex-col justify-center items-center">
-            <p className="text-[1vw] leading-[1vw] max-sm:text-[1rem] max-sm:leading-[1rem] RedText uppercase">
-              Get In Touch
-            </p>
+            {/* <p className="text-[1vw] leading-[1vw] max-sm:text-[1rem] max-sm:leading-[1rem] RedText uppercase">
+             
+            </p> */}
             <p className="font-semibold text-[2vw] max-sm:text-[2rem] max-sm:leading-[2rem] leading-[2.2vw] uppercase">
-              Contact Us
+              Get In Touch
             </p>
           </div>
         </div>
@@ -881,8 +873,18 @@ const Home = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4 text-left">
               {[
-                { label: "Full Name", name: "name", type: "text", placeholder: "John Doe" },
-                { label: "Email Address", name: "email", type: "email", placeholder: "john@example.com" },
+                {
+                  label: "Full Name",
+                  name: "name",
+                  type: "text",
+                  placeholder: "John Doe",
+                },
+                {
+                  label: "Email Address",
+                  name: "email",
+                  type: "email",
+                  placeholder: "john@example.com",
+                },
               ].map((f) => (
                 <div key={f.name}>
                   <label className="block text-xs text-white mb-1.5 tracking-widest uppercase">
@@ -895,7 +897,7 @@ const Home = () => {
                     value={form[f.name]}
                     onChange={handleChange}
                     placeholder={f.placeholder}
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/50 outline-none focus:border-red-500 transition-colors"
+                    className="w-full bg-white/[0.04] border border-white/70 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/50 outline-none focus:border-red-500 transition-colors"
                   />
                 </div>
               ))}
@@ -910,7 +912,7 @@ const Home = () => {
                   onChange={handleChange}
                   rows={5}
                   placeholder="Tell us about your project..."
-                  className="w-full bg-white/[0.04] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/50 outline-none focus:border-red-500 transition-colors resize-none"
+                  className="w-full bg-white/[0.04] border border-white/70 rounded-xl px-4 py-3.5 text-sm text-white placeholder-white/50 outline-none focus:border-red-500 transition-colors resize-none"
                 />
               </div>
               <button
@@ -925,20 +927,20 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-       <footer className="relative border-t  BlackBG border-white/[0.06] pt-16 pb-8 px-5 sm:px-10">
-         <div className="w-full mx-auto fkex ">
-           {/* Top grid */}
-           <div className="flex flex-col w-full justify-between gap-12 mb-16 md:flex-row md:flex-wrap md:items-start">
-             {/* Brand */}
-             <div className="footer-item w-fit flex-shrink-0">
-               {/* <h3
+      <footer className="relative border-t  BlackBG border-white/[0.06] pt-16 pb-8 px-5 sm:px-10">
+        <div className="w-full mx-auto fkex ">
+          {/* Top grid */}
+          <div className="flex flex-col w-full justify-between gap-12 mb-16 md:flex-row md:flex-wrap md:items-start">
+            {/* Brand */}
+            <div className="footer-item w-fit flex-shrink-0">
+              {/* <h3
                 className="text-3xl font-black uppercase WhiteText tracking-widest mb-3"
                 
               >
                 MOSFET
               </h3> */}
-               <div className="w-[100px] mb-5">
-                 <img
+              <div className="w-[100px] mb-5">
+                <img
                   src={`/img/logo.png`}
                   alt="IMG"
                   className="w-full object-cover object-center"
@@ -1009,10 +1011,10 @@ const Home = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label}
-                    className="w-fit px-5 h-10 rounded-lg flex items-center justify-center text-xs font-bold text-white/80 hover:RedText transition-all duration-200 hover:scale-110"
+                    className="w-fit px-5 h-10 rounded-lg flex items-center border border-[red]/70 justify-center text-xs font-bold text-white hover:RedText transition-all duration-200 hover:scale-110"
                     style={{
                       background: "rgba(255,255,255,0.04)",
-                      border: "1px solid rgba(255,255,255,0.08)",
+                      
                     }}
                   >
                     <AnimatedTitle text={s.label} />
@@ -1028,7 +1030,7 @@ const Home = () => {
           {/* Bottom bar */}
           <div className="footer-item flex flex-col md:flex-row items-center justify-between gap-3 text-[14px] text-white">
             <span>
-              © {new Date().getFullYear()} Mosfet. All rights reserved.
+              © {new Date().getFullYear()} Mosfet Technologies. All rights reserved.
             </span>
             <span className=" transition-colors cursor-default flex justify-center items-center gap-2">
               Developed by{" "}
@@ -1045,8 +1047,6 @@ const Home = () => {
           </div>
         </div>
       </footer>
-
-      
     </>
   );
 };
